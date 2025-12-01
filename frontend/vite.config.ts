@@ -54,7 +54,11 @@
       outDir: 'build',
     },
     server: {
-      port: 3000,
+      host: true,
+      port: 5173,
       open: true,
+      watch: {
+       usePolling: true, // <--- RECOMENDADO PARA WSL (Si los cambios no se actualizan solos)
+      }
     },
   });
