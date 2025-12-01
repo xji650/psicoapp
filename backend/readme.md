@@ -62,3 +62,4 @@ Y nos daremos cuenta de que se ha añadido automaticamente en `package.json` la 
 
     npm install socket.io cors
 
+
