@@ -1,9 +1,11 @@
 {
-  "name": "psicoapp",
-  "version": "1.0.0",
-  "description": "A GEI UdL User Centred Design (DCU) Project ",
-  "main": "index.js",
+  "name": "psicoapp-backend",
+  "version": "0.1.0",
+  "description": "A backend server for PsicoApp ",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/xji650/psicoapp/"
   },
-  "homepage": "https://github.com/xji650/psicoapp#readme"
+  "homepage": "https://github.com/xji650/psicoapp#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  }
 }
