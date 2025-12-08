@@ -31,7 +31,7 @@ const OLLAMA_URL = 'http://host.docker.internal:11434/api/chat';
 // 'llama3.1' -> Mejor calidad y empatía (Recomendado si tienes +8GB RAM)
 // 'llama3.2' -> Velocidad extrema (Recomendado para portátiles sencillos)
 // 'mistral'  -> Buena alternativa balanceada
-const AI_MODEL = 'mistral'; 
+const AI_MODEL = 'llama3.2'; 
 
 // Prompt del Sistema: Define la personalidad del terapeuta
 const SYSTEM_PROMPT = `

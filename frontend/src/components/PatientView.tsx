@@ -17,6 +17,7 @@ export function PatientView() {
     { id: 'diary' as PatientScreen, icon: Calendar, label: 'Diario' },
     { id: 'emergency' as PatientScreen, icon: Heart, label: 'Emergencia' },
     { id: 'chat' as PatientScreen, icon: MessageCircle, label: 'Chat' },
+    { id: 'resources' as PatientScreen, icon: BookOpen, label: 'Recursos' },
     { id: 'profile' as PatientScreen, icon: User, label: 'Perfil' },
   ];
 
