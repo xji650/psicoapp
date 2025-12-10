@@ -6,6 +6,7 @@ import { PatientDiary } from './patient/PatientDiary';
 import { PatientChat } from './patient/PatientChat';
 import { PatientProfile } from './patient/PatientProfile';
 import { PatientResources } from './patient/PatientResources';
+import { PatientCalendar } from './patient/PatientCalendar';
 
 type PatientScreen = 'home' | 'emergency' | 'diary' | 'chat' | 'resources' | 'profile';
 
@@ -31,6 +32,7 @@ export function PatientView() {
         {currentScreen === 'chat' && <PatientChat />}
         {currentScreen === 'resources' && <PatientResources />}
         {currentScreen === 'profile' && <PatientProfile onNavigate={setCurrentScreen} />}
+        {currentScreen === 'calendar' && <PatientCalendar />}
       </div>
 
       {/* Bottom Navigation */}

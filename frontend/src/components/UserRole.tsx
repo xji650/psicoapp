@@ -29,13 +29,13 @@ export function UserRole({ role, label, icon, active, onClick }: UserRoleProps) 
       : 'bg-white text-gray-700 hover:bg-pink-50',
   };
 
-  return (
-    <button
-      onClick={onClick}
-      className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg ${colorClasses[role]}`}
-    >
-      <Icon className="w-5 h-5" />
-      <span>{label}</span>
-    </button>
-  );
+  // return (
+  //   <button
+  //     onClick={onClick}
+  //     className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg ${colorClasses[role]}`}
+  //   >
+  //     <Icon className="w-5 h-5" />
+  //     <span>{label}</span>
+  //   </button>
+  // );
 }

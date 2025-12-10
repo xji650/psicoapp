@@ -84,7 +84,10 @@ export function PatientHome({ onEmergency, onNavigate }: PatientHomeProps) {
               <p className="text-sm text-gray-600">Mañana, 10:00 - Dra. López</p>
             </div>
           </div>
-          <button className="px-4 py-2 bg-white text-blue-600 rounded-xl text-sm hover:shadow-md transition-all">
+          <button 
+            onClick={() => onNavigate('calendar')}
+            className="px-4 py-2 bg-white text-blue-600 rounded-xl text-sm hover:shadow-md transition-all"
+          >
             Ver
           </button>
         </div>

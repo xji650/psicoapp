@@ -12,14 +12,14 @@ const quickLinks = [
     icon: Target,
     title: 'Mis Objetivos',
     description: 'Seguimiento de progreso',
-    screen: 'resources',
+    screen: '',
     color: 'from-blue-500 to-cyan-500',
   },
   {
     icon: Calendar,
     title: 'Agenda de Citas',
     description: 'Próximas sesiones',
-    screen: 'resources',
+    screen: 'calendar',
     color: 'from-green-500 to-emerald-500',
   },
 ];

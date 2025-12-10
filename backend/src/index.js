@@ -46,19 +46,38 @@ CRITICAL RULES:
 4. Do NOT verify your understanding of these rules, just ACT on them.
 `;
 
+// Necesitas acceder a la variable global 'messages' dentro de la función
 async function queryOllama(userText) {
     try {
-        console.log(`🧠 Consultando a ${AI_MODEL}...`);
+        console.log(`🧠 Consultando a ${AI_MODEL} con contexto...`);
+
+        // 1. TRANSFORMACIÓN DE HISTORIAL
+        // Tomamos los últimos 10 mensajes para no saturar la memoria (Context Window)
+        const recentMessages = messages.slice(-10); 
+        
+        // Convertimos tu formato (sender: 'patient'/'ai') al formato de Ollama (role: 'user'/'assistant')
+        // Excluimos el mensaje actual que acabamos de enviar para no duplicarlo, ya que lo añadimos al final
+        const historyForOllama = recentMessages
+            .filter(msg => msg.text !== userText) // Evitar duplicar el último input si ya se guardó
+            .map(msg => ({
+                role: msg.sender === 'patient' ? 'user' : 'assistant',
+                content: msg.text
+            }));
+
+        // 2. CONSTRUCCIÓN DEL PAYLOAD FINAL
+        const fullConversation = [
+            { role: "system", content: SYSTEM_PROMPT }, // Personalidad siempre primero
+            ...historyForOllama,                        // Historia previa
+            { role: "user", content: userText }         // Mensaje actual
+        ];
+
         const response = await fetch(OLLAMA_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 model: AI_MODEL,
                 stream: false,
-                messages: [
-                    { role: "system", content: SYSTEM_PROMPT },
-                    { role: "user", content: userText }
-                ]
+                messages: fullConversation // <--- AQUI enviamos todo
             })
         });
 
@@ -69,7 +88,7 @@ async function queryOllama(userText) {
 
     } catch (error) {
         console.error("Error Ollama:", error);
-        return "Lo siento, estoy teniendo problemas de conexión. Por favor, intenta respirar profundo y espera unos segundos.";
+        return "Lo siento, estoy teniendo problemas de conexión.";
     }
 }
 
